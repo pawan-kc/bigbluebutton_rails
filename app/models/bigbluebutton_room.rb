@@ -394,7 +394,7 @@ class BigbluebuttonRoom < ActiveRecord::Base
   def select_server
     BigbluebuttonServer.
       select("bigbluebutton_servers.*, count(bigbluebutton_rooms.id) as room_count").
-      joins(:rooms).group(:server_id).order("room_count ASC").first
+      joins(:rooms).group(:id).order("room_count ASC").first
   end
 
   def init
